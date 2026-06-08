@@ -1,0 +1,11 @@
+<launch>
+
+  <param name="use_sim_time" value="true"/>
+
+  <!-- AMCL + mapa salvo -->
+  <include file="$(find garcom_navigation)/launch/amcl.launch" />
+
+  <!-- move_base -->
+  <include file="$(find garcom_navigation)/launch/move_base.launch" />
+
+</launch>
