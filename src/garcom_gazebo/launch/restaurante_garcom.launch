@@ -1,0 +1,28 @@
+<launch>
+
+  <arg name="x" default="-2.2"/>
+  <arg name="y" default="-1.8"/>
+  <arg name="z" default="0.05"/>
+
+  <param name="robot_description"
+         command="$(find xacro)/xacro $(find garcom_description)/urdf/garcom_robot.urdf.xacro" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find garcom_gazebo)/worlds/restaurante_simples.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+  </include>
+
+  <node name="spawn_garcom_robot"
+        pkg="gazebo_ros"
+        type="spawn_model"
+        output="screen"
+        args="-urdf -model garcom_robot -param robot_description -x $(arg x) -y $(arg y) -z $(arg z)" />
+
+  <node name="robot_state_publisher"
+        pkg="robot_state_publisher"
+        type="robot_state_publisher"
+        output="screen" />
+
+</launch>
