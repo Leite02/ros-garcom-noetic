@@ -28,7 +28,7 @@ src/
 Clone o repositório:
 
 ```bash
-git clone https://github.com/SEU_USUARIO/ros-garcom-noetic.git
+git clone https://github.com/Leite02/ros-garcom-noetic.git
 cd ros-garcom-noetic
 ```
 
